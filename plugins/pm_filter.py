@@ -965,7 +965,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong sona\n\n{e}", show_alert=True)
             return
         
-    elif data.startswith("notify_user_req_rejected"):
+    
+        
+    elif data.startswith("notify_user_spelling_error"):
+        _, user_id, movie = data.split(":")
+        # Send messagelif data.startswith("notify_user_req_rejected"):
         _, user_id, movie = data.split(":")
         # Send message to user
         try:
@@ -973,9 +977,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
                 InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/Fileclone")
-            ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@Bpt_Altu")
-            ]]
             ],[
                 InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@Bot_Altu")
             ]]
@@ -994,10 +995,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             print(e)  # print the error message
             await query.answer(f"☣something went wrong darling\n\n{e}", show_alert=True)
             return
-        
-    elif data.startswith("notify_user_spelling_error"):
-        _, user_id, movie = data.split(":")
-        # Send message to user
         try:
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
